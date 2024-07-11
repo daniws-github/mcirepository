@@ -234,7 +234,6 @@
                                         <span class="nk-menu-icon"><em class="icon ni ni-account-setting"></em></span>
                                         <span class="nk-menu-text">Settings</span>
                                     </a>
-
                                 </li>
                             </ul><!-- .nk-menu -->
                         </div><!-- .nk-sidebar-menu -->
@@ -343,28 +342,3 @@
                     </div><!-- .container-fliud -->
                 </div>
                 <!-- main header @e -->
-
-                <!-- Modal Alert 2 -->
-                <div class="modal fade" tabindex="-1" id="modalAlert2">
-                    <div class="modal-dialog modal-lg" role="document">
-                        <div class="modal-content">
-                            <div class="modal-body modal-body-lg text-center">
-                                <div class="nk-modal">
-                                    <div class="nk-block nk-block-middle wide-md mx-auto">
-                                        <div class="nk-block-content nk-error-ld text-center">
-                                            <img class="nk-error-gfx" width="320" src="<?= base_url('assets/images') ?>/dev.avif" alt="">
-                                            <div class="wide-xs mx-auto">
-                                                <h3 class="nk-error-title">Under Development!</h3>
-                                                <p class="nk-error-text">We apologize for the inconvenience. It looks like this page is currently under development.</p>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <div class="nk-modal-action mt-5">
-                                        <a href="javascript:void(0);" class="btn btn-lg btn-mw btn-light" data-bs-dismiss="modal">Return</a>
-                                    </div>
-                                </div>
-                            </div><!-- .modal-body -->
-                        </div>
-                    </div>
-                </div>
