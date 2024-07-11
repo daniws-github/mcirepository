@@ -4,9 +4,12 @@
 <head>
 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
     <meta name="description" content="TechWave">
     <meta name="author" content="Frenify">
+
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
     <title><?= $title; ?> - MCI Telkomsel</title>
     <link rel="icon" type="image/png" sizes="96x96" href="<?= base_url('assets') ?>/images/favicon.png">
 
@@ -18,7 +21,7 @@
         if (!localStorage.frenify_panel) {
             localStorage.frenify_panel = '';
         }
-        document.documentElement.setAttribute("data-techwave-skin", localStorage.frenify_skin);
+        document.documentElement.setAttribute("data-techwave-skin", 'light');
         if (localStorage.frenify_panel !== '') {
             document.documentElement.classList.add(localStorage.frenify_panel);
         }
@@ -33,26 +36,10 @@
     <!-- Styles -->
     <link type="text/css" rel="stylesheet" href="<?= base_url('chat/assets') ?>/css/plugins.css?ver=1.0.0" />
     <link type="text/css" rel="stylesheet" href="<?= base_url('chat/assets') ?>/css/style.css?ver=1.0.0" />
-
+    <!--[if lt IE 9]> <script type="text/javascript" src="js/modernizr.custom.js"></script> <![endif]-->
+    <!-- !Styles -->
 
 </head>
-
-<style>
-    .custom-text {
-        font-size: 20px;
-        color: #ffffff;
-        font-family: 'Poppins', sans-serif;
-        font-weight: 900;
-        text-shadow: 1px 1px 2px black;
-        display: inline-block;
-        margin-top: -5px;
-        /* Sesuaikan nilai ini untuk menggeser teks ke atas */
-    }
-
-    .techwave_fn_content {
-        width: 1200px;
-    }
-</style>
 
 <body>
 
@@ -74,9 +61,8 @@
 
 
     <!-- MAIN WRAPPER -->
-    <div class="techwave_fn_wrapper">
+    <div class="techwave_fn_wrapper fn__has_sidebar">
         <div class="techwave_fn_wrap">
-
 
 
             <!-- HEADER -->
@@ -84,13 +70,7 @@
 
                 <!-- Header left: token information -->
                 <div class="header__left">
-                    <div class="fn__token_info">
-                        <span class="token_summary">
-                            <span class="count">120</span>
-                            <span class="text">Tokens<br>Remain</span>
-                        </span>
 
-                    </div>
                 </div>
                 <!-- /Header left: token information -->
 
@@ -99,7 +79,14 @@
                 <div class="header__right">
                     <div class="fn__nav_bar">
 
-
+                        <!-- Site Skin (bar item) -->
+                        <div class="bar__item bar__item_skin">
+                            <a href="#" class="item_opener">
+                                <img src="<?= base_url('assets/images') ?>/sun.svg" alt="" class="fn__svg light_mode">
+                                <img src="<?= base_url('assets/images') ?>/moon.svg" alt="" class="fn__svg dark_mode">
+                            </a>
+                        </div>
+                        <!-- !Site Skin (bar item) -->
 
                         <!-- Notification (bar item) -->
                         <div class="bar__item bar__item_notification has_notification">
@@ -112,12 +99,12 @@
                                 <div class="ntfc_header">
                                     <h2 class="ntfc_title">Notifications</h2>
                                 </div>
-                                <div class="ntfc_list">
+                                <div class="ntfc_list" style="max-height: 400px; overflow-y: auto;">
                                     <ul>
                                         <?php if (!empty($logs)) : ?>
                                             <?php foreach ($logs as $log) : ?>
                                                 <?php $is_read = in_array($log->id, $read_logs); ?>
-                                                <li>
+                                                <li style="border-bottom: 1px solid #ddd; padding: 10px 0;">
                                                     <p>
                                                         <a href="notification-single.html">
                                                             <?php echo $log->username; ?> telah menambah dokumen baru, <b><?php echo $log->document_name; ?></b>
@@ -155,7 +142,7 @@
                         <span class="full_logo">
                             <div style="display: flex; align-items: center;">
                                 <img src="<?= base_url('assets') ?>/images/favicon.png" width="30" alt="" class="desktop_logo" style="vertical-align: middle;">
-                                <span style="font-size: 20px; color: #ffffff; font-family: 'Poppins', sans-serif; font-weight: 900; margin-left: 10px;"><strong>MCI Assistant</strong></span>
+                                <span style="font-size: 20px; color: #FF0000; font-family: 'Poppins', sans-serif; font-weight: 900; margin-left: 10px;"><strong>MCI Assistant</strong></span>
                             </div>
                         </span>
                         <span class="short_logo">
@@ -178,7 +165,6 @@
 
                 <!-- content (left panel) -->
                 <div class="leftpanel_content">
-
                     <!-- #1 navigation group -->
                     <div class="nav_group">
                         <h2 class="group__title">Menu Navigation</h2>
@@ -216,22 +202,6 @@
                         </ul>
                     </div>
                     <!-- !#1 navigation group -->
-
-                    <!-- #2 navigation group -->
-                    <div class="nav_group">
-                        <h2 class="group__title">User Tools</h2>
-                        <ul class="group__list">
-                            <li>
-                                <a href="<?= site_url('chatbot') ?>" class="fn__tooltip menu__item" data-position="right" title="AI Chat Bot">
-                                    <span class="icon"><img src="<?= base_url('assets/images') ?>/chat.svg" alt="" class="fn__svg"></span>
-                                    <span class="text">AI Chat Bot</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- !#2 navigation group -->
-
-
                 </div>
                 <!-- !content (left panel) -->
 
@@ -245,64 +215,98 @@
                 <!-- PAGE (all pages go inside this div) -->
                 <div class="techwave_fn_page">
 
-                    <!-- Home Page -->
-                    <div class="techwave_fn_home">
-                        <div class="section_home">
-                            <div class="section_left">
+                    <!-- AI Chat Bot Page -->
+                    <div class="techwave_fn_aichatbot_page fn__chatbot">
 
-                                <!-- Title Shortcode -->
-                                <div class="techwave_fn_title_holder">
-                                    <h1 class="title">Unleash Your Creativity with AI</h1>
-                                    <p class="desc">Generate your ideas into stunning visuals</p>
+                        <div class="chat__page">
+
+                            <div class="fn__title_holder">
+                                <div class="container">
+                                    <!-- Active chat title -->
+                                    <h1 class="title">New Chat</h1>
+                                    <!-- !Active chat title -->
                                 </div>
-                                <!-- !Title Shortcode -->
+                            </div>
 
-                                <!-- Interactive List Shortcode -->
-                                <div class="techwave_fn_interactive_list modern">
-                                    <ul>
-                                        <li>
-                                            <div class="item">
-                                                <a href="<?= site_url('chatbot') ?>">
-                                                    <span class="icon">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-chat-dots" viewBox="0 0 16 16">
-                                                            <path d="M5 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0m3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2" />
-                                                            <path d="m2.165 15.803.02-.004c1.83-.363 2.948-.842 3.468-1.105A9 9 0 0 0 8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6a10.4 10.4 0 0 1-.524 2.318l-.003.011a11 11 0 0 1-.244.637c-.079.186.074.394.273.362a22 22 0 0 0 .693-.125m.8-3.108a1 1 0 0 0-.287-.801C1.618 10.83 1 9.468 1 8c0-3.192 3.004-6 7-6s7 2.808 7 6-3.004 6-7 6a8 8 0 0 1-2.088-.272 1 1 0 0 0-.711.074c-.387.196-1.24.57-2.634.893a11 11 0 0 0 .398-2" />
-                                                        </svg>
+                            <div class="container">
+                                <div class="chat__list">
+
+                                    <div id="chat0" class="chat__item"></div>
+
+                                    <div class="chat__item active" id="chat1">
+
+                                    </div>
+
+                                    <div class="chat__item" id="chat2"></div>
+
+                                    <div class="chat__item" id="chat3"></div>
+
+                                    <div class="chat__item" id="chat4"></div>
+
+                                </div>
+                            </div>
+
+
+                            <div class="chat__comment">
+                                <div class="container">
+                                    <div class="fn__chat_comment">
+                                        <div class="new__chat">
+                                            <p>Ask it questions, engage in discussions, or simply enjoy a friendly chat.</p>
+                                        </div>
+                                        <textarea rows="1" class="fn__hidden_textarea" tabindex="-1"></textarea>
+                                        <textarea rows="1" placeholder="Send a message..." id="fn__chat_textarea"></textarea>
+                                        <button>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-return-left" viewBox="0 0 16 16">
+                                                <path fill-rule="evenodd" d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5" />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="chat__sidebar">
+                            <div class="sidebar_header">
+                                <a href="#chat0" class="fn__new_chat_link">
+                                    <span class="icon"></span>
+                                    <span class="text">New Chat</span>
+                                </a>
+                            </div>
+                            <div class="sidebar_content">
+                                <div class="chat__group new">
+                                    <h2 class="group__title">Today</h2>
+                                    <ul class="group__list">
+                                        <li class="group__item">
+                                            <div class="fn__chat_link active" href="#chat1">
+                                                <span class="text">New Chat</span>
+                                                <input type="text" value="Chat Bot Definition">
+                                                <span class="options">
+                                                    <button class="trigger"><span></span></button>
+                                                    <span class="options__popup">
+                                                        <span class="options__list">
+                                                            <button class="edit">Edit</button>
+                                                            <button class="delete">Delete</button>
+                                                        </span>
                                                     </span>
-                                                    <h2 class="title">AI Chat Bot</h2>
-                                                    <p class="desc">An AI chatbot, short for artificial intelligence chatbot, is a computer program designed to simulate human-like conversations and provide automated responses to user queries or prompts. </p>
-                                                    <span class="arrow"><img src="<?= base_url('assets/images') ?>/arrow.svg" alt="" class="fn__svg"></span>
-                                                </a>
+                                                </span>
+                                                <span class="save_options">
+                                                    <button class="save">
+                                                        <img src="svg/check.svg" alt="" class="fn__svg">
+                                                    </button>
+                                                    <button class="cancel">
+                                                        <img src="svg/close.svg" alt="" class="fn__svg">
+                                                    </button>
+                                                </span>
                                             </div>
                                         </li>
                                     </ul>
                                 </div>
-                                <!-- !Interactive List Shortcode -->
-
-                            </div>
-                            <div class="section_right">
-                                <div class="company_info">
-                                    <div style="display: flex; align-items: center;">
-                                        <img src="<?= base_url('assets') ?>/images/favicon.png" width="30" alt="" class="desktop_logo" style="vertical-align: middle;">
-                                        <span style="font-size: 20px; color: #ffffff; font-family: 'Poppins', sans-serif; font-weight: 900; margin-left: 10px;"><strong>MCI Assistant</strong></span>
-                                    </div>
-                                    <p class="fn__animated_text">The official server of TECH-AI, a chatbot that transforms text into detailed PDF reports. Explore limitless possibilities with market-leading features tailored to give you complete control over your document generations.</p>
-                                    <hr>
-                                    <div class="fn__members">
-                                        <div class="active item">
-                                            <span class="circle"></span>
-                                            <span class="text">1,154,694 Online</span>
-                                        </div>
-                                        <div class="item">
-                                            <span class="circle"></span>
-                                            <span class="text">77,345,912 Members</span>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
+
                     </div>
-                    <!-- !Home Page -->
+                    <!-- !AI Chat Bot Page -->
 
                 </div>
                 <!-- !PAGE (all pages go inside this div) -->
@@ -336,6 +340,7 @@
     <!-- Scripts -->
     <script type="text/javascript" src="<?= base_url('chat/assets') ?>/js/jquery.js?ver=1.0.0"></script>
     <script type="text/javascript" src="<?= base_url('chat/assets') ?>/js/plugins.js?ver=1.0.0"></script>
+    <!--[if lt IE 10]> <script type="text/javascript" src="js/ie8.js"></script> <![endif]-->
     <script type="text/javascript" src="<?= base_url('chat/assets') ?>/js/init.js?ver=1.0.0"></script>
 
     <script>
