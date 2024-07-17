@@ -187,12 +187,20 @@
                                     <span class="text">Log Tracking</span>
                                 </a>
                             </li>
-                            <li>
-                                <a href="<?= site_url('user-management') ?>" class="fn__tooltip menu__item" data-position="right" title="User Management">
-                                    <span class="icon"><img src="<?= base_url('assets/images') ?>/user.svg" alt="" class="fn__svg"></span>
-                                    <span class="text">User Management</span>
-                                </a>
-                            </li>
+                            <?php if ($this->session->userdata('role') == 1) : ?>
+                                <li>
+                                    <a href="<?= site_url('log-history') ?>" class="fn__tooltip menu__item" data-position="right" title="Log Tracking">
+                                        <span class="icon"><img src="<?= base_url('assets/images') ?>/log.svg" alt="" class="fn__svg"></span>
+                                        <span class="text">Log Tracking</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="<?= site_url('user-management') ?>" class="fn__tooltip menu__item" data-position="right" title="User Management">
+                                        <span class="icon"><img src="<?= base_url('assets/images') ?>/user.svg" alt="" class="fn__svg"></span>
+                                        <span class="text">User Management</span>
+                                    </a>
+                                </li>
+                            <?php endif; ?>
                             <li>
                                 <a href="<?= site_url('account-setting') ?>" class="fn__tooltip menu__item" data-position="right" title="Settings">
                                     <span class="icon"><img src="<?= base_url('assets/images') ?>/setting.svg" alt="" class="fn__svg"></span>

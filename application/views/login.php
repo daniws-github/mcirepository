@@ -310,7 +310,7 @@
 				<br>
 				<div class="or"><b>OR</b></div>
 				<br>
-				<a href="javascript:void(0)" class="google-login">
+				<a href="https://IP:5000/login" class="google-login">
 					<img src="<?= base_url('assets') ?>/images/microsoft.png" width="20" alt="Google Icon"> Sign in with Microsoft
 				</a>
 			</form>

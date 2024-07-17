@@ -28,14 +28,14 @@
                                    <div class="tab-content">
                                        <div class="tab-pane active" id="tabItem1">
                                            <p>
-                                           <table class="datatable-init table nowrap table">
+                                           <table class="datatable-init table">
                                                <thead>
                                                    <tr>
                                                        <th>#</th>
                                                        <th>Users</th>
-                                                       <th>Email</th>
-                                                       <th>Login time</th>
-                                                       <th>IP</th>
+                                                       <th>Time</th>
+                                                       <th>Address</th>
+                                                       <th>Browser</th>
                                                        <th>Status</th>
                                                    </tr>
                                                </thead>
@@ -44,10 +44,10 @@
                                                     foreach ($login_history as $log) : ?>
                                                        <tr>
                                                            <td><?= $no++; ?></td>
-                                                           <td><?php echo $log->username; ?></td>
-                                                           <td><?php echo $log->email; ?></td>
+                                                           <td><?php echo $log->username; ?> <br> <small class="text-danger"><b><?php echo $log->email; ?></b></small></td>
                                                            <td><?php echo $log->login_time; ?></td>
                                                            <td><?php echo $log->ip_address; ?></td>
+                                                           <td><?php echo $log->browser; ?></td>
                                                            <td class="<?php echo $log->status === 'Success' ? 'status-success' : 'status-fail'; ?>">
                                                                <?php echo $log->status; ?>
                                                            </td>
