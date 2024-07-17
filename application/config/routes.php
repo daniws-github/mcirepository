@@ -7,6 +7,7 @@ $route['translate_uri_dashes'] = FALSE;
 
 // Rute untuk get-login
 $route['get-login'] = 'login/get_login';
+$route['callback'] = 'login/handleCallback';
 
 // Rute untuk view document
 $route['view-document/(:any)'] = 'document/view/$1';
