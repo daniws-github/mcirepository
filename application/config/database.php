@@ -75,10 +75,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'repository',
-	'password' => 'P@ssw0rd',
-	'database' => 'repository',
+	'hostname' => '10.2.114.197',
+	'username' => 'fikritha',
+	'password' => 'Juara@0123',
+	'database' => 'portalmci_new',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,

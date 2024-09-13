@@ -23,7 +23,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'https://10.49.143.153/mcirepository/';
+$config['base_url'] = 'https://10.2.114.197/mcirepository/';
 
 /*
 |--------------------------------------------------------------------------
